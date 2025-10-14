@@ -46,10 +46,9 @@ It creates a shared viewing experience where friends, classmates, or teams can e
 
 3. **Start the Development Server**
 
-  # Run backend
+ Run backend
   npm run server
-  
-  # Run frontend (in a new terminal)
+Run frontend (in a new terminal)
   npm start
 
 
@@ -57,7 +56,7 @@ It creates a shared viewing experience where friends, classmates, or teams can e
 
 http://localhost:3000
 
-🧩 How It Works
+## 🧩 How It Works
 
 -Create or join a room.
 
@@ -67,7 +66,7 @@ http://localhost:3000
 
 -Use the chat box to communicate in real time while watching.
 
-🔒 Future Enhancements
+## 🔒 Future Enhancements
 
 🎧 Voice chat integration via WebRTC
 
@@ -77,6 +76,6 @@ http://localhost:3000
 
 🌐 Global room discovery feature
 
-📜 License
+## 📜 License
 
 This project is open-source and available under the MIT License
