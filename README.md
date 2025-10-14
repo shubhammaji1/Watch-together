@@ -30,9 +30,6 @@ It creates a shared viewing experience where friends, classmates, or teams can e
 - Express.js  
 - Socket.io  
 
-**Database:**
-- MongoDB (for user sessions and room management)
-
 ---
 
 ## 📦 Installation & Setup
