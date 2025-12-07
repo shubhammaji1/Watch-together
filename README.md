@@ -1,81 +1,69 @@
-# 🎬 Watch Together  
-**Sync YouTube videos and chat in real-time with WebRTC**
+# React + TypeScript + Vite
 
-Watch Together is a real-time collaborative web application that allows multiple users to **watch YouTube videos together** and **chat live** — all synchronized perfectly using **WebRTC** and **Socket.io**.  
-It creates a shared viewing experience where friends, classmates, or teams can enjoy content together — no matter where they are.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🚀 Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- 🎥 **Synchronized YouTube Playback** — All users in the same room watch videos in perfect sync.  
-- 💬 **Real-Time Chat** — Communicate with other viewers instantly during playback.  
-- 👥 **Room-Based Interaction** — Create or join rooms to watch together with friends.  
-- 🔗 **Video Sharing** — Share YouTube URLs to start a new session quickly.  
-- ⚡ **WebRTC + Socket.io** — Ensures smooth real-time communication and synchronization.  
-- 📱 **Responsive Design** — Works seamlessly across desktop, tablet, and mobile devices.
+## Expanding the ESLint configuration
 
----
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 🧠 Tech Stack
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-**Frontend:**
-- React.js  
-- HTML5, CSS3, JavaScript (ES6+)  
-- WebRTC  
-- Socket.io-client  
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-**Backend:**
-- Node.js  
-- Express.js  
-- Socket.io  
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 📦 Installation & Setup
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/shubhammaji1/Watch-together.git
-   cd watch-together
-2. **Install Dependencies**
-
-    npm install
-    cd client && npm install
-
-
-3. **Start the Development Server**
-
- Run backend
-  npm run server
-Run frontend (in a new terminal)
-  npm start
-
-
-4. **Visit the App**
-
-http://localhost:3000
-
-## 🧩 How It Works
-
--Create or join a room.
-
--Paste a YouTube video link to start watching.
-
--The video will auto-sync for everyone in the room.
-
--Use the chat box to communicate in real time while watching.
-
-## 🔒 Future Enhancements
-
-🎧 Voice chat integration via WebRTC
-
-👀 User authentication and profiles
-
-🎞️ Playlist & queue management
-
-🌐 Global room discovery feature
-
-## 📜 License
-
-This project is open-source and available under the MIT License
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
