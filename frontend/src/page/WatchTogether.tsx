@@ -69,7 +69,6 @@ const WatchTogether: React.FC = () => {
     <div className="container">
       <div className="header">
         <h1>🎥 Watch Together</h1>
-        <p>Sync YouTube videos and chat in real-time with WebRTC</p>
       </div>
 
       <div className="main-content">
@@ -158,3 +157,4 @@ const WatchTogether: React.FC = () => {
 };
 
 export default WatchTogether;
+
